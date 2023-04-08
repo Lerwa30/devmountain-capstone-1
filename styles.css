@@ -26,3 +26,27 @@ a:visited {
 a:hover {
     color: #d6AAAA;
 }
+
+#profile {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    gap: 100px;
+    background-color: #f3e2e2;
+}
+
+img {
+    border-radius: 60%;
+    border: 2px solid white;
+    height: 250px;
+    
+}
+
+#photo-btn {
+    margin-top: 15px;
+    background-color: #69A1F5;
+    border: none;
+    border-radius: 8px;
+    color: whitesmoke;
+    padding: 10px;
+}
