@@ -9,11 +9,18 @@ header {
     align-items: center;
     background-color: #69A1F5;
     padding: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black;
 }
 
 a {
     padding: 20px;
     text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
 }
 
 a:hover {
