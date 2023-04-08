@@ -1,0 +1,21 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #69A1F5;
+    padding: 15px;
+}
+
+a {
+    padding: 20px;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #d6AAAA;
+}
