@@ -5,5 +5,13 @@
         "event": "Eat",
         "description": "Ate 5oz of formula.",
         "time": "7:00 AM"
+    },
+
+    {
+        "id": 2,
+        "date": "04/11/2023",
+        "event": "Sleep",
+        "description": "Slept 3 hours",
+        "time": "9:00 AM"
     }
 ]
