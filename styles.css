@@ -13,6 +13,10 @@ header {
     color: black;
 }
 
+h2, h4 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 a {
     padding: 20px;
     text-decoration: none;
@@ -35,6 +39,14 @@ a:hover {
     background-color: #f3e2e2;
 }
 
+#schedule {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background-color: #f8f2f7;
+}
+
 img {
     border-radius: 60%;
     border: 2px solid white;
@@ -49,4 +61,12 @@ img {
     border-radius: 8px;
     color: whitesmoke;
     padding: 10px;
+}
+
+#submit {
+    background-color: #69A1F5;
+    border: none;
+    border-radius: 8px;
+    color: whitesmoke;
+    padding: 5px;
 }

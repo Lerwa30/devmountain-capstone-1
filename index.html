@@ -20,11 +20,32 @@
         <section id="profile">
             <img id="placeholder-img" src="https://www.shutterstock.com/image-vector/baby-kid-child-happy-minimalistic-260nw-526138570.jpg">
 
-            <h3>Name: Maggie<br>
+            <h4>Name: Maggie<br>
                 Age: 6 Months<br>
                 <button id="photo-btn" onclick="popUp()">Upload Photo</button>
-            </h3>
+            </h4>
         </section>
+
+        <section id="schedule">
+            <h2>Habit Log</h2><br>
+            <form id="event-form">
+                <label for="date">Date</label>
+                <input type="date" id="date">
+                <label for="events">Event Type</label>
+                <select id="events">
+                    <option value="eat">Eat</option>
+                    <option value="sleep">Sleep</option>
+                    <option value="diaper">Diaper</option>
+                    <option value="note">Note</option>
+                </select>
+                <label for="description">Description</label>
+                <input type="text" id="description">
+                <label for="time">Time</label>
+                <input type="time" id="time">
+                <input type="submit" id="submit" value="Submit">
+            </form>
+        </section>
+        <section id="event-container"></section>
     </main>
 
     
