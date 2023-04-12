@@ -18,7 +18,7 @@ const printEventList = () => {
             eventItem.innerHTML = `<p>${res.data[i].date} - </p>
             <p>${res.data[i].event} - </p>
             <p>${res.data[i].description} - </p>
-            <p>${res.data[i].time}</p>`
+            <p>${res.data[i].time} - <button>Delete</button></p>`
             
             eventSection.appendChild(eventItem);
         }
