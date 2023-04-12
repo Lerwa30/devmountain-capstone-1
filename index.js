@@ -15,9 +15,9 @@ const printEventList = () => {
             const eventItem = document.createElement('div');
             eventItem.classList.add('list-item');
             console.log(res.data[i])
-            eventItem.innerHTML = `<p>${res.data[i].date}</p>
-            <p>${res.data[i].event}</p>
-            <p>${res.data[i].description}</p>
+            eventItem.innerHTML = `<p>${res.data[i].date} - </p>
+            <p>${res.data[i].event} - </p>
+            <p>${res.data[i].description} - </p>
             <p>${res.data[i].time}</p>`
             
             eventSection.appendChild(eventItem);

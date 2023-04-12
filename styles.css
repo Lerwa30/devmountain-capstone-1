@@ -34,6 +34,7 @@ a:hover {
 #profile {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 30px;
     gap: 100px;
     background-color: #f3e2e2;
@@ -69,4 +70,14 @@ img {
     border-radius: 8px;
     color: whitesmoke;
     padding: 5px;
+}
+
+#event-container {
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    display: inline;
+    
 }
