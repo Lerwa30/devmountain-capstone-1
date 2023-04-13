@@ -1,4 +1,5 @@
 let eventList = require('./db.json');
+id = 3;
 
 module.exports = {
     printEvents: (req, res) => {
@@ -12,5 +13,13 @@ module.exports = {
                 res.status(200).send(eventList)
             }
         }
+    },
+
+    createEvent: (req, res) => {
+        let formEvent = req.body;
+        formEvent.id = id;
+        eventList.push(formEvent)
+        id++;
+        res.status(200).send(eventList);
     }
 }

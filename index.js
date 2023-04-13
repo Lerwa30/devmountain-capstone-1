@@ -1,4 +1,5 @@
 const eventSection = document.querySelector('#event-container');
+const form = document.querySelector('form');
 
 function popUp() {
    let userImg = prompt("Paste img URL here.")
@@ -22,6 +23,12 @@ const deleteEvent = (id) => {
     })
 }
 
+const addEvent = (body) => {
+    axios.post('http://localhost:5050/api/events', body).then((res) => {
+        showList(res.data);
+    })
+}
+
 const createListItem = (event) => {
         const eventItem = document.createElement('div');
         eventItem.classList.add('list-item');
@@ -41,6 +48,23 @@ const showList = (event) => {
         createListItem(event[i])
 }
 }
+
+const submitForm = (e) => {
+    e.preventDefault();
+    let date = document.querySelector('#date');
+    let events = document.querySelector('#events');
+    let description = document.querySelector('#description');
+    let time = document.querySelector('#time');
+
+    let newEvent = {
+        date: date.value,
+        event: events.value,
+        description: description.value,
+        time: time.value
+    }
+    addEvent(newEvent);
+}
+form.addEventListener('submit', submitForm)
 
 printEventList();
 
