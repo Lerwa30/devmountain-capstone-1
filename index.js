@@ -11,7 +11,7 @@ function popUp() {
 const printEventList = () => {
     axios.get('http://localhost:5050/api/events').then((res) => {
         console.log(res.data);
-        showList(res.data);
+        createListItem(res.data);
         //loop through array of objects, then create html to display the data for each object in that array and append html to dom
     });
 }
@@ -19,34 +19,29 @@ const printEventList = () => {
 const deleteEvent = (id) => {
     axios.delete(`http://localhost:5050/api/events/${id}`).then((res) => {
         console.log(res.data)
-        showList(res.data);
+        createListItem(res.data);
     })
 }
 
 const addEvent = (body) => {
     axios.post('http://localhost:5050/api/events', body).then((res) => {
-        showList(res.data);
+        createListItem(res.data);
     })
 }
 
-const createListItem = (event) => {
+const createListItem = (item) => {
+        eventSection.innerHTML= ''
+        for (let i = 0; i < item.length; i++) {
         const eventItem = document.createElement('div');
         eventItem.classList.add('list-item');
-        console.log(event.id)
-        eventItem.innerHTML = `<p>${event.date} - </p>
-        <p>${event.event} - </p>
-        <p>${event.description} - </p>
-        <p>${event.time} - <button onclick=(deleteEvent(${event.id}))>Delete</button></p>`
+        console.log(item[i].id)
+        eventItem.innerHTML = `<p>${item[i].date} - </p>
+        <p>${item[i].event} - </p>
+        <p>${item[i].description} - </p>
+        <p>${item[i].time} - <button onclick=(deleteEvent(${item[i].id}))>Delete</button></p>`
         
         eventSection.appendChild(eventItem);
-    
-}
-
-const showList = (event) => {
-    eventSection.innerHTML= ''
-    for (let i = 0; i < event.length; i++) {
-        createListItem(event[i])
-}
+        }
 }
 
 const submitForm = (e) => {
