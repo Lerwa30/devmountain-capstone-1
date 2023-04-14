@@ -34,7 +34,8 @@ const createListItem = (item) => {
         for (let i = 0; i < item.length; i++) {
         const eventItem = document.createElement('div');
         eventItem.classList.add('list-item');
-        console.log(item[i].id)
+        console.log(item[i].time)
+        item[i].time = item[i].time.slice(0, 5);
         eventItem.innerHTML = `<p>${item[i].date} - </p>
         <p>${item[i].event} - </p>
         <p>${item[i].description} - </p>

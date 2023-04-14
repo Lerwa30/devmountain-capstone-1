@@ -1,6 +1,9 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const cors = require('cors')
+const {SERVER_PORT} = process.env
+
 
 app.use(express.json()); 
 app.use(cors());
@@ -10,6 +13,5 @@ app.get("/api/events", printEvents)
 app.delete("/api/events/:id", deleteEvent)
 app.post("/api/events", createEvent)
 
-app.listen(5050, () => console.log('Server running on 5050'));
-
+app.listen(SERVER_PORT, () => console.log(`up on ${SERVER_PORT}`))
 

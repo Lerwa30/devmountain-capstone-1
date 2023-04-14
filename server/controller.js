@@ -1,9 +1,25 @@
-let eventList = require('./db.json');
-id = 3;
+require("dotenv").config();
+const {CONNECTION_STRING} = process.env;
+const Sequelize = require("sequelize");
+const sequelize = new Sequelize(CONNECTION_STRING, {
+    dialect: 'postgres',
+    dialectOptions: {
+        ssl: {
+            rejectUnauthorized: false
+        }
+    }
+  });
+
+// let eventList = require('./db.json');
+// id = 3;
 
 module.exports = {
     printEvents: (req, res) => {
-        res.status(200).send(eventList)
+        sequelize.query(`
+        SELECT * FROM events`)
+            .then(dbResult => {
+                res.status(200).send(dbResult[0])
+            })
     },
 
     deleteEvent: (req, res) => {
@@ -16,11 +32,15 @@ module.exports = {
     },
 
     createEvent: (req, res) => {
-        let formEvent = req.body;
-        formEvent.id = id;
-        eventList.push(formEvent)
-        console.log(formEvent)
-        id++;
-        res.status(200).send(eventList);
+        let { date, event, description, time } = req.body;
+        console.log(date, event, description, time)
+        sequelize.query(`INSERT INTO events (date, event, description, time)
+        VALUES ('${date}', '${event}', '${description}', '${time}');`)
+            .then(dbResult => {sequelize.query(`
+            SELECT * FROM events;`)
+                .then(dbResult => {
+                    res.status(200).send(dbResult[0])
+                })
+            })
     }
 }
