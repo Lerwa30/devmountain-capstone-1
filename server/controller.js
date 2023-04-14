@@ -19,6 +19,7 @@ module.exports = {
         let formEvent = req.body;
         formEvent.id = id;
         eventList.push(formEvent)
+        console.log(formEvent)
         id++;
         res.status(200).send(eventList);
     }
