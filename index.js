@@ -9,13 +9,21 @@ function popUp() {
 
 function editName() {
     let newName = prompt("Type name here:")
+    if(newName === '') {
+        return alert('Please enter a name.')
+    } else{
     document.getElementById("placeholder-name").textContent = newName;
+    }
 }
 
 function editAge() {
     let newAge = prompt("Type age here:")
+    if(newAge === '') {
+        return alert('Please enter the age.')
+    } else{
     document.getElementById("placeholder-age").textContent = newAge;
 }
+};
 
 
 const printEventList = () => {
