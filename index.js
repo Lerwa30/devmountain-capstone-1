@@ -7,6 +7,16 @@ function popUp() {
    document.getElementById("placeholder-img").src= userImg;
 }
 
+function editName() {
+    let newName = prompt("Type name here:")
+    document.getElementById("placeholder-name").textContent = newName;
+}
+
+function editAge() {
+    let newAge = prompt("Type age here:")
+    document.getElementById("placeholder-age").textContent = newAge;
+}
+
 
 const printEventList = () => {
     axios.get('http://localhost:5050/api/events').then((res) => {

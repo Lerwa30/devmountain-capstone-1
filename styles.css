@@ -69,6 +69,15 @@ img {
     padding: 10px;
 }
 
+#edit-button {
+    background-color: #69A1F5;
+    border: solid white;
+    border-radius: 8px;
+    color: whitesmoke;
+    padding: 1px;
+    margin-left: 5px;
+}
+
 #submit {
     background-color: #69A1F5;
     border: none;
@@ -80,7 +89,7 @@ img {
 #event-container {
     display: flex;
     flex-direction: column-reverse;
-    margin-left: 115px;
+    margin-left: 200px;
     padding: 10px;
     gap: 10px;
     background-color: #f8f2f7;

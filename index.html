@@ -20,8 +20,8 @@
         <section id="profile">
             <img id="placeholder-img" src="https://cdn-icons-png.flaticon.com/512/3787/3787150.png">
 
-            <h4>Name: Maggie<br>
-                Age: 6 Months<br>
+            <h4>Name: <p id="placeholder-name">Maggie</p><button id="edit-button" onclick="editName()"><i class="fa-solid fa-pencil"></i></button><br>
+                Age: <p id="placeholder-age">6 Months</p><button id="edit-button" onclick="editAge()"><i class="fa-solid fa-pencil"></i></button><br><br>
                 <button id="photo-btn" onclick="popUp()">Upload Photo</button>
             </h4>
         </section>
@@ -55,5 +55,6 @@
 
 <script src="./node_modules/axios/dist/axios.min.js"></script>
 <script src="index.js"></script>
+<script src="https://kit.fontawesome.com/23f7a8793e.js" crossorigin="anonymous"></script>
 </body>
 </html>

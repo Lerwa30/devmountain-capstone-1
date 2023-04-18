@@ -10,8 +10,6 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
     }
   });
 
-// let eventList = require('./db.json');
-// id = 3;
 
 module.exports = {
     printEvents: (req, res) => {
