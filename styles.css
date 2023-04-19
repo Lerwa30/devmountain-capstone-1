@@ -89,13 +89,17 @@ img {
 #event-container {
     display: flex;
     flex-direction: column-reverse;
-    margin-left: 200px;
+    margin-left: 400px;
     padding: 10px;
-    gap: 10px;
+    gap: 20px;
     background-color: #f8f2f7;
 }
 
 p {
     display: inline;
     
+}
+
+.is-hidden {
+    display: none;
 }
