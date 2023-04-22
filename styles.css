@@ -69,10 +69,10 @@ img {
     padding: 10px;
 }
 
-#edit-button {
+#edit-name-btn, #edit-age-btn {
     background-color: #69A1F5;
-    border: solid white;
-    border-radius: 8px;
+    border: none;
+    border-radius: 5px;
     color: whitesmoke;
     padding: 1px;
     margin-left: 5px;
@@ -95,11 +95,15 @@ img {
     background-color: #f8f2f7;
 }
 
+#event-group {
+    display: inline;
+}
+
 p {
     display: inline;
     
 }
 
-.is-hidden {
+.hidden {
     display: none;
 }

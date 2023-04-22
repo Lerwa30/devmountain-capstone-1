@@ -10,8 +10,30 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
     }
   });
 
+let name = "Maggie";
+let age = "6 Months";
+let imgUrl = "https://cdn-icons-png.flaticon.com/512/3787/3787150.png";
 
 module.exports = {
+    getProfile: (req, res) => {
+        res.status(200).send({name, age, imgUrl});
+    },
+
+    editProfile: (req, res) => {
+        const { newName, newAge, newImg } = req.query;
+        console.log(newName, newAge, newImg)
+        if(newName) {
+            name = newName;
+        } 
+        if(newAge) {
+            age = newAge;
+        }
+        if(newImg) {
+            imgUrl = newImg;
+        }
+        res.status(200).send({name, age, imgUrl});
+    },
+
     printEvents: (req, res) => {
         sequelize.query(`
         SELECT * FROM events`)

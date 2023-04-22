@@ -1,21 +1,27 @@
 const eventSection = document.querySelector('#event-container');
+const profileSection = document.querySelector('#profile');
 const form = document.querySelector('form');
 let itemList;
 
 function popUp() {
    let userImg = prompt("Paste img URL here.")
-   console.log(userImg)
+   if(userImg === '') {
+    return alert('Please enter a URL')
+    } else{
    document.getElementById("placeholder-img").src= userImg;
 }
+};
 
-function editName() {
-    let newName = prompt("Type name here:")
-    if(newName === '') {
-        return alert('Please enter a name.')
-    } else{
-    document.getElementById("placeholder-name").textContent = newName;
-    }
-}
+// function editName() {
+//     let newName = prompt("Type name here:")
+//     if(newName === '') {
+//         return alert('Please enter a name.')
+//     } else{
+//     document.getElementById("placeholder-name").textContent = newName;
+//     }
+// }
+
+
 
 function editAge() {
     let newAge = prompt("Type age here:")
@@ -32,34 +38,32 @@ function search() {
     for(let i = 0; i < itemList.length; i++) {
         console.log(itemList[i].textContent)
         if(itemList[i].textContent.toLowerCase().includes(searchQuery.toLowerCase())){
-            itemList[i].classList.remove("is-hidden");
+            itemList[i].classList.remove("hidden");
         } else {
-            itemList[i].classList.add("is-hidden");
+            itemList[i].classList.add("hidden");
         }
     }
 }
 
-let typingTimer;               
-let typeInterval = 500;  
+let typingTimer;                 
 let searchInput = document.getElementById('searchbox');
 
 searchInput.addEventListener('keyup', () => {
     console.log(itemList)
     clearTimeout(typingTimer);
-    typingTimer = setTimeout(search, typeInterval);
+    typingTimer = setTimeout(search, 500);
 });
 
 const printEventList = () => {
     axios.get('http://localhost:5050/api/events').then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         createListItem(res.data);
-        //loop through array of objects, then create html to display the data for each object in that array and append html to dom
     });
 }
 
 const deleteEvent = (id) => {
     axios.delete(`http://localhost:5050/api/events/${id}`).then((res) => {
-        console.log(res.data)
+        // console.log(res.data)
         createListItem(res.data);
     })
 }
@@ -69,6 +73,46 @@ const addEvent = (body) => {
         createListItem(res.data);
     })
 }
+async function getProfile() {
+//  axios.get('http://localhost:5050/api/profile').then((res) => {
+//     console.log(res.data.name)
+//     profileSection.innerHTML = `<img id="placeholder-img" src="${res.data.imgUrl}">
+//     <h4>Name: <p id="placeholder-name">${res.data.name}</p><button id="edit-name-btn"><i class="fa-solid fa-pencil"></i></button><br>
+//     Age: <p id="placeholder-age">${res.data.age}</p><button id="edit-age-btn"><i class="fa-solid fa-pencil"></i></button><br><br>
+//     <button id="photo-btn">Upload Photo</button>
+// </h4>`
+// })
+
+let res = await axios.get('http://localhost:5050/api/profile')
+
+    profileSection.innerHTML = `<img id="placeholder-img" src="${res.data.imgUrl}">
+    <h4>Name: <p id="placeholder-name">${res.data.name}</p><button id="edit-name-btn"><i class="fa-solid fa-pencil"></i></button><br>
+    Age: <p id="placeholder-age">${res.data.age}</p><button id="edit-age-btn"><i class="fa-solid fa-pencil"></i></button><br><br>
+    <button id="photo-btn">Upload Photo</button>
+</h4>`
+
+const nameBtn = document.querySelector('#edit-name-btn');
+console.log(nameBtn)
+
+nameBtn.addEventListener('click', () => {
+    let newName = prompt("Type name here:")
+    console.log(newName)
+    if(newName === '') {
+            return alert('Please enter a name.')
+        } else{
+        axios.put(`http://localhost:5050/api/profile?newName=${newName}`).then((res) => {
+            document.querySelector('#placeholder-name').textContent = res.data.name;
+        })
+        }
+});
+};
+getProfile();
+
+
+// select name button document.querySelector 
+// attach click event to button
+// inside click function have prompt appear, take prompt value and run axios post request
+// in .then need to update name in html
 
 const createListItem = (item) => {
         eventSection.innerHTML= ''
@@ -76,10 +120,12 @@ const createListItem = (item) => {
         const eventItem = document.createElement('div');
         eventItem.classList.add('list-item');
         item[i].time = item[i].time.slice(0, 5);
-        eventItem.innerHTML = `<p>${item[i].date} - </p>
+        eventItem.innerHTML = `<div id="event-group">
+        <p>${item[i].date} - </p>
         <p>${item[i].event} - </p>
-        <p>${item[i].description} - </p>
-        <p>${item[i].time} - <button onclick=(deleteEvent(${item[i].id}))>Delete</button></p>`
+        <p>"${item[i].description}" - </p>
+        <p>${item[i].time} - <button onclick=(deleteEvent(${item[i].id}))>Delete</button></p>
+        </div>`
         
         eventSection.appendChild(eventItem);
         }

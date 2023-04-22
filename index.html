@@ -1,62 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>myBaby Journal</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>myBaby's Journal</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <header>
-        <h1>myBaby Journal</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a>Articles</a>
-        </nav>
+      <h1>myBaby's Journal</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a>Articles</a>
+      </nav>
     </header>
 
     <main>
-        <section id="profile">
-            <img id="placeholder-img" src="https://cdn-icons-png.flaticon.com/512/3787/3787150.png">
+      <section id="profile">
+        <!-- <img
+          id="placeholder-img"
+          src="https://cdn-icons-png.flaticon.com/512/3787/3787150.png"
+        />
 
-            <h4>Name: <p id="placeholder-name">Maggie</p><button id="edit-button" onclick="editName()"><i class="fa-solid fa-pencil"></i></button><br>
-                Age: <p id="placeholder-age">6 Months</p><button id="edit-button" onclick="editAge()"><i class="fa-solid fa-pencil"></i></button><br><br>
-                <button id="photo-btn" onclick="popUp()">Upload Photo</button>
-            </h4>
-        </section>
+        <h4>
+          Name:
+          <p id="placeholder-name">Maggie</p>
+          <button id="edit-name-btn" onclick="editName()">
+            <i class="fa-solid fa-pencil"></i></button
+          ><br />
+          Age:
+          <p id="placeholder-age">6 Months</p>
+          <button id="edit-age-btn" onclick="editAge()">
+            <i class="fa-solid fa-pencil"></i></button
+          ><br /><br />
+          <button id="photo-btn" onclick="popUp()">Upload Photo</button>
+        </h4> -->
+      </section>
 
-        <section id="schedule">
-            <h2>Habit Log</h2><br>
-            <label for="searchbox" class="search">Search</label>
-            <input type="search" id="searchbox" placeholder="Type date or event..."><br>
-            <form id="event-form">
-                <label for="date">Date</label>
-                <input type="date" id="date">
-                <label for="events">Event Type</label>
-                <select id="events">
-                    <option value="Eat">Eat</option>
-                    <option value="Sleep">Sleep</option>
-                    <option value="Diaper">Diaper</option>
-                    <option value="Note">Note</option>
-                </select>
-                <label for="description">Description</label>
-                <input type="text" id="description">
-                <label for="time">Time</label>
-                <input type="time" id="time">
-                <input type="submit" id="submit" value="Submit">
-            </form>
-        </section>
-        <section id="event-container"></section>
+      <section id="schedule">
+        <h2>Habit Log</h2>
+        <br />
+        <label for="searchbox" class="search">Search</label>
+        <input
+          type="search"
+          id="searchbox"
+          placeholder="Type date or event..."
+        /><br />
+        <form id="event-form">
+          <label for="date">Date</label>
+          <input type="date" id="date" />
+          <label for="events">Event Type</label>
+          <select id="events">
+            <option value="Eat">Eat</option>
+            <option value="Sleep">Sleep</option>
+            <option value="Diaper">Diaper</option>
+            <option value="Note">Note</option>
+          </select>
+          <label for="description">Description</label>
+          <input type="text" id="description" />
+          <label for="time">Time</label>
+          <input type="time" id="time" />
+          <input type="submit" id="submit" value="Submit" />
+        </form>
+      </section>
+      <section id="event-container"></section>
     </main>
 
-    
-
-
-
-
-<script src="./node_modules/axios/dist/axios.min.js"></script>
-<script src="index.js"></script>
-<script src="https://kit.fontawesome.com/23f7a8793e.js" crossorigin="anonymous"></script>
-</body>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/23f7a8793e.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
