@@ -12,13 +12,14 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #69A1F5;
+    background: rgb(105,161,245);
+    background: linear-gradient(90deg, rgba(105,161,245,1) 19%, rgba(69,113,236,1) 82%, rgba(105,161,245,1) 100%);
     padding: 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: black;
 }
 
-h2, h4 {
+h2, h4, label {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -45,6 +46,7 @@ a:hover {
     background-color: #f3e2e2;
 }
 
+
 #schedule {
     display: flex;
     flex-direction: column;
@@ -69,7 +71,7 @@ img {
     padding: 10px;
 }
 
-#edit-name-btn, #edit-age-btn {
+#edit-name-btn, #edit-age-btn, #delete-btn {
     background-color: #69A1F5;
     border: none;
     border-radius: 5px;
@@ -89,14 +91,22 @@ img {
 #event-container {
     display: flex;
     flex-direction: column-reverse;
-    margin-left: 400px;
+    margin-left: 350px;
     padding: 10px;
-    gap: 20px;
+    gap: 30px;
     background-color: #f8f2f7;
 }
 
 #event-group {
     display: inline;
+    border-radius: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+input, select {
+    background-color: #d2e1f7;
+    border-radius: 5px;
 }
 
 p {
@@ -106,4 +116,12 @@ p {
 
 .hidden {
     display: none;
+}
+
+#mdapp-widget {
+    padding: 20px;
+}
+
+details {
+    padding-left: 50px;
 }

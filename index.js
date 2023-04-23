@@ -15,7 +15,7 @@ function search() {
       itemList[i].classList.add("hidden");
     }
   }
-}
+};
 
 let typingTimer;
 let searchInput = document.getElementById("searchbox");
@@ -48,7 +48,7 @@ async function getProfile() {
   let res = await axios.get("http://localhost:5050/api/profile");
 
   profileSection.innerHTML = `<img id="placeholder-img" src="${res.data.imgUrl}">
-    <h4>Name: <p id="placeholder-name">${res.data.name}</p><button id="edit-name-btn"><i class="fa-solid fa-pencil"></i></button><br>
+    <h4>Name: <p id="placeholder-name">${res.data.name}</p><button id="edit-name-btn"><i class="fa-solid fa-pencil"></i></button><br><br>
     Age: <p id="placeholder-age">${res.data.age}</p><button id="edit-age-btn"><i class="fa-solid fa-pencil"></i></button><br><br>
     <button id="photo-btn">Upload Photo</button>
 </h4>`;
@@ -107,11 +107,11 @@ const createListItem = (item) => {
     const eventItem = document.createElement("div");
     eventItem.classList.add("list-item");
     item[i].time = item[i].time.slice(0, 5);
-    eventItem.innerHTML = `<div id="event-group">
+        eventItem.innerHTML = `<div id="event-group">
         <p>${item[i].date} - </p>
         <p>${item[i].event} - </p>
         <p>"${item[i].description}" - </p>
-        <p>${item[i].time} - <button onclick=(deleteEvent(${item[i].id}))>Delete</button></p>
+        <p>${item[i].time}  <button id="delete-btn" onclick=(deleteEvent(${item[i].id}))>Delete</button></p>
         </div>`;
 
     eventSection.appendChild(eventItem);
@@ -136,6 +136,7 @@ const submitForm = (e) => {
 
   addEvent(newEvent);
 };
+
 
 form.addEventListener("submit", submitForm);
 
