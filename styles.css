@@ -136,3 +136,42 @@ details {
         background-color: #f8f2f7;
     }
 }
+
+@media screen and (max-width: 480px) {
+    #event-container {
+        display: flex;
+        flex-direction: column-reverse;
+        margin-left: auto;
+        padding: 10px;
+        gap: 30px;
+        background-color: #f8f2f7;
+    }
+
+    #profile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        gap: 25px;
+        background-color: #f3e2e2;
+    }
+
+    #event-group {
+        display: inline;
+        border-radius: 5px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    #schedule {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 25px;
+        background-color: #f8f2f7;
+    }
+}
