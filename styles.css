@@ -15,7 +15,7 @@ header {
     background: rgb(105,161,245);
     background: linear-gradient(90deg, rgba(105,161,245,1) 19%, rgba(69,113,236,1) 82%, rgba(105,161,245,1) 100%);
     padding: 15px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Apple Chancery';
     color: black;
 }
 
@@ -58,7 +58,7 @@ a:hover {
 img {
     border-radius: 60%;
     border: 2px solid white;
-    height: 250px;
+    height: 200px;
     
 }
 

@@ -21,7 +21,6 @@ module.exports = {
 
   editProfile: (req, res) => {
     const { newName, newAge, newImg } = req.query;
-    console.log(newName, newAge, newImg);
     if (newName) {
       name = newName;
     }
@@ -68,7 +67,6 @@ module.exports = {
 
   createEvent: (req, res) => {
     let { date, event, description, time } = req.body;
-    console.log(date, event, description, time);
     sequelize
       .query(
         `INSERT INTO events (date, event, description, time)

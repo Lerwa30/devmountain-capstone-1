@@ -6,7 +6,6 @@ let itemList;
 function search() {
   let searchQuery = document.getElementById("searchbox").value;
   for (let i = 0; i < itemList.length; i++) {
-    console.log(itemList[i].textContent);
     if (
       itemList[i].textContent.toLowerCase().includes(searchQuery.toLowerCase())
     ) {
@@ -15,13 +14,12 @@ function search() {
       itemList[i].classList.add("hidden");
     }
   }
-};
+}
 
 let typingTimer;
 let searchInput = document.getElementById("searchbox");
 
 searchInput.addEventListener("keyup", () => {
-  console.log(itemList);
   clearTimeout(typingTimer);
   typingTimer = setTimeout(search, 500);
 });
@@ -59,7 +57,6 @@ async function getProfile() {
 
   nameBtn.addEventListener("click", () => {
     let newName = prompt("Type name here:");
-    console.log(newName);
     if (newName === "") {
       return alert("Please enter a name.");
     } else {
@@ -103,21 +100,36 @@ getProfile();
 
 const createListItem = (item) => {
   eventSection.innerHTML = "";
-  for (let i = 0; i < item.length; i++) {
-    const eventItem = document.createElement("div");
-    eventItem.classList.add("list-item");
-    item[i].time = item[i].time.slice(0, 5);
-        eventItem.innerHTML = `<div id="event-group">
-        <p>${item[i].date} - </p>
-        <p>${item[i].event} - </p>
-        <p>"${item[i].description}" - </p>
-        <p>${item[i].time}  <button id="delete-btn" onclick=(deleteEvent(${item[i].id}))>Delete</button></p>
-        </div>`;
+  let datesObject = {};
+  item.forEach((e, i) => {
+    if (!(e.date in datesObject)) {
+      datesObject[e.date] = [];
+    }
+    console.log(datesObject);
+    datesObject[e.date].push(item[i]);
+  });
 
-    eventSection.appendChild(eventItem);
+  for (let key in datesObject) {
+    const newDate = document.createElement("details");
+    newDate.classList.add("list-item");
+    const summary = document.createElement("summary");
+    summary.textContent = key;
+    newDate.appendChild(summary);
+    
+    for (let i = 0; i < datesObject[key].length; i++) {
+      const eventDetails = datesObject[key][i];
+      const eventItem = document.createElement("div");
+      eventDetails.time = eventDetails.time.slice(0, 5);
+      eventItem.innerHTML = `
+        <p>${eventDetails.event} - </p>
+        <p>"${eventDetails.description}" - </p>
+        <p>${eventDetails.time}  <button id="delete-btn" onclick=(deleteEvent(${eventDetails.id}))>Delete</button></p>
+        `;
+      newDate.appendChild(eventItem);
+    }
+    eventSection.appendChild(newDate);
   }
   itemList = document.querySelectorAll(".list-item");
-  console.log(item);
 };
 
 const submitForm = (e) => {
@@ -136,7 +148,6 @@ const submitForm = (e) => {
 
   addEvent(newEvent);
 };
-
 
 form.addEventListener("submit", submitForm);
 
