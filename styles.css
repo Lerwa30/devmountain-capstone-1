@@ -19,18 +19,20 @@ header {
     color: black;
 }
 
-h2, h4, label {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+h2 {
+    font-family: 'Apple Chancery';
+
+}
+
+h4, label {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial;
+    text-decoration: solid;
 }
 
 a {
     padding: 20px;
     text-decoration: none;
-}
-
-a:visited {
-    text-decoration: none;
-    color: black;
+    color: #efe2ed
 }
 
 a:hover {
@@ -91,15 +93,47 @@ img {
 #event-container {
     display: flex;
     flex-direction: column-reverse;
-    margin-left: 550px;
-    padding: 10px;
+    padding: 50px;
     gap: 30px;
     background-color: #f8f2f7;
 }
 
-#event-group {
-    display: inline;
-    border-radius: 5px;
+summary {
+    padding: 1rem;
+    display: block;
+    margin-left: 200px;
+    margin-right: 200px;
+    background: #d2e1f7;
+    padding-left: 2.2rem;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  summary:before {
+    content: '';
+    border-width: .4rem;
+    border-style: solid;
+    border-color: transparent transparent transparent #fff;
+    position: absolute;
+    top: 1.3rem;
+    left: 1rem;
+    transform: rotate(0);
+    transform-origin: .2rem 50%;
+    transition: .25s transform ease;
+  }
+  
+  details[open] > summary:before {
+    transform: rotate(90deg);
+  }
+
+.event-group {
+    display: flex;
+    border: .5px solid #d2e1f7;
+    justify-content: space-between;
+    padding: 10px 60px;
+    margin-left: 200px;
+    margin-right: 200px;
+    background-color: #f3e2e2;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 }

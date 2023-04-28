@@ -115,15 +115,16 @@ const createListItem = (item) => {
     const summary = document.createElement("summary");
     summary.textContent = key;
     newDate.appendChild(summary);
-    
+
     for (let i = 0; i < datesObject[key].length; i++) {
       const eventDetails = datesObject[key][i];
       const eventItem = document.createElement("div");
+      eventItem.classList.add("event-group");
       eventDetails.time = eventDetails.time.slice(0, 5);
       eventItem.innerHTML = `
-        <p>${eventDetails.event} - </p>
-        <p>"${eventDetails.description}" - </p>
-        <p>${eventDetails.time}  <button id="delete-btn" onclick=(deleteEvent(${eventDetails.id}))>Delete</button></p>
+        <p>${eventDetails.event} - 
+        "${eventDetails.description}" - 
+        ${eventDetails.time} </p> <button id="delete-btn" onclick=(deleteEvent(${eventDetails.id}))>Delete</button>
         `;
       newDate.appendChild(eventItem);
     }
