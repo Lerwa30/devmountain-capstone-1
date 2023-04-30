@@ -16,7 +16,7 @@ header {
     background: linear-gradient(90deg, rgba(105,161,245,1) 19%, rgba(69,113,236,1) 82%, rgba(105,161,245,1) 100%);
     padding: 15px;
     font-family: 'Apple Chancery';
-    color: black;
+    color: #efe2ed;
 }
 
 h2 {
@@ -160,25 +160,19 @@ details {
     padding-left: 50px;
 }
 
-@media screen and (max-width: 1366px) {
-    #event-container {
-        display: flex;
-        flex-direction: column-reverse;
-        margin-left: 350px;
-        padding: 10px;
-        gap: 30px;
-        background-color: #f8f2f7;
-    }
-}
+
 
 @media screen and (max-width: 480px) {
-    #event-container {
+    .event-group {
         display: flex;
-        flex-direction: column-reverse;
-        margin-left: auto;
-        padding: 10px;
-        gap: 30px;
-        background-color: #f8f2f7;
+        border: .5px solid #d2e1f7;
+        justify-content: space-between;
+        padding: 10px 60px;
+        margin-left: 200px;
+        margin-right: 200px;
+        background-color: #f3e2e2;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
     }
 
     #profile {
