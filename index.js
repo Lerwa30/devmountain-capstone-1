@@ -105,7 +105,6 @@ const createListItem = (item) => {
     if (!(e.date in datesObject)) {
       datesObject[e.date] = [];
     }
-    console.log(datesObject);
     datesObject[e.date].push(item[i]);
   });
 

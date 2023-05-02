@@ -27,6 +27,7 @@ h2 {
 h4, label {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial;
     text-decoration: solid;
+    color: rgb(94, 89, 89);
 }
 
 a {
