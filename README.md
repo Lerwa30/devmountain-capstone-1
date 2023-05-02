@@ -17,4 +17,6 @@ This application will allow you to create a profile for you newborn and keep tra
 
 3. Use the delete option in order to remove an event from the specified list and date.
 
+## Wireframe/Planning:
+
 (https://www.figma.com/file/ivG4eRS7guIHKOInhegK9F/Capstone?node-id=1%3A13&t=CoiDqkXN5wKX10cE-1)
